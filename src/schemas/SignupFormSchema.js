@@ -25,11 +25,13 @@ async function DateValidation(value, params) {
   console.log(`inside date validation for ${value}`);
   console.log(params);
   const { minDate, maxDate } = params;
-  const parsedDate = parse(value, "E MMM dd yyyy", new Date());
+  const parsedDate = parse(value, "mm/dd/yyyy", new Date());
+  console.log(`Min date is ${format(parseISO(minDate), "mm/dd/yyyy")}`);
+  console.log(`Max date is ${format(parseISO(maxDate), "mm/dd/yyyy")}`);
   return await Yup.date()
     .typeError("Invalid date")
-    .min(minDate, `Min date is ${format(parseISO(minDate), "E MMM dd yyyy")}`)
-    .max(maxDate, `Max date is ${format(parseISO(maxDate), "E MMM dd yyyy")}`)
+    .min(minDate, `Min date is ${format(parseISO(minDate), "mm/dd/yyyy")}`)
+    .max(maxDate, `Max date is ${format(parseISO(maxDate), "mm/dd/yyyy")}`)
     .validate(parsedDate)
     .then(value => {})
     .catch(err => {
@@ -53,8 +55,8 @@ export default {
   yupValidations: SignupFormSchema,
   customValidations: {
     // name: NameValidation,
-    ReturnDate: DateValidation,
-    DepartDate: DateValidation,
+    //ReturnDate: DateValidation,
+    //DepartDate: DateValidation,
     monthCalendar: MonthCalendarValidation
   }
 };

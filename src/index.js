@@ -251,11 +251,13 @@ export default function App() {
                                 field="DepartDate"
                                 name={`air${item.id}.DepartDate`}
                                 label="Departure Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
                               <SelectInput
@@ -293,11 +295,13 @@ export default function App() {
                                 field="ReturnDate"
                                 name={`air${item.id}.ReturnDate`}
                                 label="Return Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(`air${item.id}.DepartDate`),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
 
@@ -394,11 +398,13 @@ export default function App() {
                                 field="DepartDate"
                                 name={`hotel${item.id}.DepartDate`}
                                 label="Check-in Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
                               <DatePicker
@@ -406,11 +412,13 @@ export default function App() {
                                 field="ReturnDate"
                                 name={`hotel${item.id}.ReturnDate`}
                                 label="Check-out Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
                             </div>
@@ -486,11 +494,13 @@ export default function App() {
                                 field="DepartDate"
                                 name={`car${item.id}.DepartDate`}
                                 label="Pickup Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
                               <SelectInput
@@ -522,21 +532,19 @@ export default function App() {
                                 name={`car${item.id}.ReturnCity`}
                                 label="Return Location"
                               />
-                              {/* <MyDatePicker
-  label="Departure Date"
-  name={`car${item.id}.ReturnDate`}
-  {...props}
-/> */}
+
                               <DatePicker
                                 props={props}
                                 field="ReturnDate"
                                 name={`car${item.id}.ReturnDate`}
                                 label="Return Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
 
@@ -632,11 +640,13 @@ export default function App() {
                                 field="DepartDate"
                                 name={`rail${item.id}.DepartDate`}
                                 label="Departure Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
                               <SelectInput
@@ -668,21 +678,19 @@ export default function App() {
                                 name={`rail${item.id}.ReturnCity`}
                                 label="To City or Station"
                               />
-                              {/* <MyDatePicker
-  label="Departure Date"
-  name={`rail${item.id}.ReturnDate`}
-  {...props}
-/> */}
+
                               <DatePicker
                                 props={props}
                                 field="ReturnDate"
                                 name={`rail${item.id}.ReturnDate`}
                                 label="Return Date"
-                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                defaultValue={new Date().toISOString()}
                                 params={{
-                                  format: "E MMM dd yyyy",
-                                  minDate: new Date(),
-                                  maxDate: addYears(new Date(), 1)
+                                  format: "dd MMM yyyy",
+                                  minDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx"),
+                                  maxDate: (new Date(),
+                                  "yyyy-MM-dd'T'HH:mm:ssxxx")
                                 }}
                               />
 

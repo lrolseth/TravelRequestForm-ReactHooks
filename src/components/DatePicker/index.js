@@ -11,7 +11,7 @@ import {
 } from "@material-ui/pickers";
 
 const TextFieldComponent = props => {
-  return <TextField {...props} disabled={false} />;
+  return <TextField {...props} disabled={true} />;
 };
 
 export default function DatePicker({
@@ -33,7 +33,6 @@ export default function DatePicker({
         name={field}
         id={field}
         label={label}
-        locale="pt"
         margin="normal"
         disableToolbar
         disablePast
