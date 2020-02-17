@@ -287,11 +287,7 @@ export default function App() {
                                 name={`air${item.id}.ReturnCity`}
                                 label="To City or Airport"
                               />
-                              {/* <MyDatePicker
-  label="Departure Date"
-  name={`air${item.id}.ReturnDate`}
-  {...props}
-/> */}
+
                               <DatePicker
                                 props={props}
                                 field="ReturnDate"
@@ -300,7 +296,7 @@ export default function App() {
                                 // defaultValue="2019-05-09T00:00:00-04:00"
                                 params={{
                                   format: "E MMM dd yyyy",
-                                  minDate: new Date(),
+                                  minDate: new Date(`air${item.id}.DepartDate`),
                                   maxDate: addYears(new Date(), 1)
                                 }}
                               />
@@ -489,7 +485,7 @@ export default function App() {
                                 props={props}
                                 field="DepartDate"
                                 name={`car${item.id}.DepartDate`}
-                                label="Departure Date"
+                                label="Pickup Date"
                                 // defaultValue="2019-05-09T00:00:00-04:00"
                                 params={{
                                   format: "E MMM dd yyyy",
@@ -746,7 +742,24 @@ export default function App() {
                 </div>
               </div>
             </div>
+
+            <div className="form-group">
+              <TextInput
+                props={props}
+                field="Comments"
+                name={`Comments`}
+                label="Comments"
+                multiline
+                inputProps={{
+                  rows: 3
+                }}
+              />
+              <small id="passwordHelpBlock" className="form-text text-muted">
+                Please do not enter any credit card information on this form.
+              </small>
+            </div>
           </div>
+
           <div className="form-group">
             <br />
             <Button

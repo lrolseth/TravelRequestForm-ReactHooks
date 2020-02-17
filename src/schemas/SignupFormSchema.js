@@ -16,17 +16,17 @@ const SignupFormSchema = {
   DepartTime: Yup.string().required("Departure time is required"),
   ReturnCity: Yup.string().required("Return City is required"),
   ReturnTime: Yup.string().required("Return time is required"),
+  DepartDate: Yup.date().required("Date is required"),
+  ReturnDate: Yup.date().required("Date is required"),
   airCheck: Yup.string()
 };
 
 async function DateValidation(value, params) {
-  //console.log(`inside date validation for ${value}`);
-  //console.log(`inside date validation for ${params}`);
-  //console.log(params);
+  console.log(`inside date validation for ${value}`);
+  console.log(params);
   const { minDate, maxDate } = params;
   const parsedDate = parse(value, "E MMM dd yyyy", new Date());
   return await Yup.date()
-    .required("Date is required")
     .typeError("Invalid date")
     .min(minDate, `Min date is ${format(parseISO(minDate), "E MMM dd yyyy")}`)
     .max(maxDate, `Max date is ${format(parseISO(maxDate), "E MMM dd yyyy")}`)
