@@ -1,0 +1,160 @@
+  // ******  Hotel   ***************************
+  const [hotelData, setHotelData] = useState([]);
+  const [isHotelHidden, setHotelHidden] = useState(true);
+  const hiddenHotelDetails = isHotelHidden ? "hidden" : "visible";
+
+  const appendHotel = () => {
+    setHotelData([...hotelData, { id: id() }]);
+  };
+
+  const removeHotel = index => {
+    setHotelData([...hotelData.slice(0, index), ...hotelData.slice(index + 1)]);
+  };
+
+  const handleHotelToggle = checkedValue => {
+    setHotelHidden(!isHotelHidden);
+
+    if (checkedValue) {
+      //add a row to hotel
+      appendHotel({ name: "appendHotel" });
+    } else {
+      //clear the entire hotel fieldArray
+      removeHotel();
+    }
+  };
+
+
+  // ******  Hotel   ***************************
+  const [hotelData, setHotelData] = useState([]);
+  const [isHotelHidden, setHotelHidden] = useState(true);
+  const hiddenHotelDetails = isHotelHidden ? "hidden" : "visible";
+
+  const appendHotel = () => {
+    setHotelData([...hotelData, { id: id() }]);
+  };
+
+  const removeHotel = index => {
+    setHotelData([...hotelData.slice(0, index), ...hotelData.slice(index + 1)]);
+  };
+
+  const handleHotelToggle = checkedValue => {
+    setHotelHidden(!isHotelHidden);
+
+    if (checkedValue) {
+      //add a row to hotel
+      appendHotel({ name: "appendHotel" });
+    } else {
+      //clear the entire hotel fieldArray
+      removeHotel();
+    }
+  };
+
+
+
+   <div className="border row">
+          <div className="col-md-10 form-inline">
+            <div className="col-md-6">
+              <div className="form-inline">
+                <TextInput
+                  props={props}
+                  field="DepartCity"
+                  name={`air${item.id}.DepartCity`}
+                  label="From City or Airport"
+                />
+
+                <DatePicker
+                  props={props}
+                  field="DepartDate"
+                  name={`air${item.id}.DepartDate`}
+                  label="Departure Date"
+                  // defaultValue="2019-05-09T00:00:00-04:00"
+                  params={{
+                    format: "E MMM dd yyyy",
+                    minDate: new Date(),
+                    maxDate: addYears(new Date(), 1)
+                  }}
+                />
+                <SelectInput
+                  props={props}
+                  field="DepartTime"
+                  label="Time"
+                  name={`air${item.id}.DepartTime`}
+                  defaultValue={"Anytime"}
+                  options={[
+                    {
+                      value: "Anytime",
+                      label: "Anytime"
+                    },
+                    { value: "Morning", label: "Morning" },
+                    {
+                      value: "Afternoon",
+                      label: "Afternoon"
+                    },
+                    { value: "Evening", label: "Evening" }
+                  ]}
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="form-inline">
+                <TextInput
+                  props={props}
+                  field="ReturnCity"
+                  name={`air${item.id}.ReturnCity`}
+                  label="To City or Airport"
+                />
+                {/* <MyDatePicker
+  label="Departure Date"
+  name={`air${item.id}.ReturnDate`}
+  {...props}
+/> */}
+                <DatePicker
+                  props={props}
+                  field="ReturnDate"
+                  name={`air${item.id}.ReturnDate`}
+                  label="Return Date"
+                  // defaultValue="2019-05-09T00:00:00-04:00"
+                  params={{
+                    format: "E MMM dd yyyy",
+                    minDate: new Date(),
+                    maxDate: addYears(new Date(), 1)
+                  }}
+                />
+
+                <SelectInput
+                  props={props}
+                  field="ReturnTime"
+                  label="Time"
+                  name={`air${item.id}.ReturnTime`}
+                  defaultValue={"Anytime"}
+                  options={[
+                    {
+                      value: "Anytime",
+                      label: "Anytime"
+                    },
+                    { value: "Morning", label: "Morning" },
+                    {
+                      value: "Afternoon",
+                      label: "Afternoon",
+                      selected: false
+                    },
+                    { value: "Evening", label: "Evening" }
+                  ]}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-2 align-middle">
+            <br />
+            <div className="align-middle">
+              <button
+                className="btn btn-outline-danger"
+                type="button"
+                onClick={() => removeAir(index)}
+              >
+                Delete segment
+              </button>
+            </div>
+          </div>
+        </div>
+        

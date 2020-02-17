@@ -1,0 +1,135 @@
+  {/* Hotel */}
+              <div
+                className="form-group ml-4"
+                style={{ visibility: hiddenHotelDetails }}
+              >
+                <h4>Flight(s)</h4>
+                {hotelData.map((item, index) => {
+                  return (
+                    <fieldset name={item.id} key={item.id}>
+                      <div className="border row">
+                        <div className="col-md-10 form-inline">
+                          <div className="col-md-6">
+                            <div className="form-inline">
+                              <TextInput
+                                props={props}
+                                field="DepartCity"
+                                name={`hotel${item.id}.DepartCity`}
+                                label="From City or Hotelport"
+                              />
+
+                              <DatePicker
+                                props={props}
+                                field="DepartDate"
+                                name={`hotel${item.id}.DepartDate`}
+                                label="Departure Date"
+                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                params={{
+                                  format: "E MMM dd yyyy",
+                                  minDate: new Date(),
+                                  maxDate: addYears(new Date(), 1)
+                                }}
+                              />
+                              <SelectInput
+                                props={props}
+                                field="DepartTime"
+                                label="Time"
+                                name={`hotel${item.id}.DepartTime`}
+                                defaultValue={"Anytime"}
+                                options={[
+                                  {
+                                    value: "Anytime",
+                                    label: "Anytime"
+                                  },
+                                  { value: "Morning", label: "Morning" },
+                                  {
+                                    value: "Afternoon",
+                                    label: "Afternoon"
+                                  },
+                                  { value: "Evening", label: "Evening" }
+                                ]}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-md-6">
+                            <div className="form-inline">
+                              <TextInput
+                                props={props}
+                                field="ReturnCity"
+                                name={`hotel${item.id}.ReturnCity`}
+                                label="To City or Hotelport"
+                              />
+                              {/* <MyDatePicker
+  label="Departure Date"
+  name={`hotel${item.id}.ReturnDate`}
+  {...props}
+/> */}
+                              <DatePicker
+                                props={props}
+                                field="ReturnDate"
+                                name={`hotel${item.id}.ReturnDate`}
+                                label="Return Date"
+                                // defaultValue="2019-05-09T00:00:00-04:00"
+                                params={{
+                                  format: "E MMM dd yyyy",
+                                  minDate: new Date(),
+                                  maxDate: addYears(new Date(), 1)
+                                }}
+                              />
+
+                              <SelectInput
+                                props={props}
+                                field="ReturnTime"
+                                label="Time"
+                                name={`hotel${item.id}.ReturnTime`}
+                                defaultValue={"Anytime"}
+                                options={[
+                                  {
+                                    value: "Anytime",
+                                    label: "Anytime"
+                                  },
+                                  { value: "Morning", label: "Morning" },
+                                  {
+                                    value: "Afternoon",
+                                    label: "Afternoon",
+                                    selected: false
+                                  },
+                                  { value: "Evening", label: "Evening" }
+                                ]}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-md-2 align-middle">
+                          <br />
+                          <div className="align-middle">
+                            <button
+                              className="btn btn-outline-danger"
+                              type="button"
+                              onClick={() => removeHotel(index)}
+                            >
+                              Delete segment
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                  );
+                })}
+
+                <div className="float-right">
+                  <br />
+                  <section>
+                    <button
+                      type="button"
+                      className="btn btn-outline-success"
+                      onClick={() => {
+                        appendHotel({ name: "appendHotel" });
+                      }}
+                    >
+                      Add hotel segment
+                    </button>
+                  </section>
+                </div>
+              </div>
+             
